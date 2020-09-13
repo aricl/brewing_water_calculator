@@ -3,6 +3,7 @@ import numpy as np
 
 def get_calcium_chloride_concentrations():
     """
+        a.k.a. gypsum
         Key: Ca, Cl, SO4, alkalinity, Na, Mg
         The effect of 1g of CaSO4 on 1 litre of liquor
         All values have been rounded to the nearest ppm
