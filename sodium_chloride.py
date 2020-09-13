@@ -8,4 +8,4 @@ def get_sodium_chloride_concentrations():
         All values have been rounded to the nearest ppm
     :return: np.array
     """
-    return np.array([0, 375, 0, 0, 246])
+    return np.array([0, 614, 0, 0, 403])

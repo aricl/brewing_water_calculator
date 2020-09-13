@@ -8,4 +8,4 @@ def get_calcium_chloride_concentrations():
         All values have been rounded to the nearest ppm
     :return: np.array
     """
-    return np.array([160, 280, 0, 0, 0])
+    return np.array([262, 458, 0, 0, 0])
