@@ -10,4 +10,5 @@ print('Now please enter your target water profile:')
 
 target_water_profile = iwp.input_water_profile()
 
-print(np.add(initial_water_profile, target_water_profile))
+water_profile_difference = np.subtract(target_water_profile, initial_water_profile)
+print(water_profile_difference)
