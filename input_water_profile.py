@@ -3,14 +3,14 @@ import input_concentration as ic
 
 
 def input_water_profile():
-    ph = ic.input_concentration('pH (a.k.a. hydrogen ion concentration): ')
-    chloride_concentration = ic.input_concentration('Chloride (Cl): ')
-    sulphate_concentration = ic.input_concentration('Sulphate (SO4): ')
-    total_hardness_as_carbonate_concentration = ic.input_concentration('Hardness Total as calcium carbonate (CaCO3): ')
-    alkalinity_as_carbonate_concentration = ic.input_concentration('Alkalinity as calcium carbonate (CaCO3): ')
-    sodium_concentration = ic.input_concentration('Sodium (Na): ')
+    ph = ic.input_concentration('pH: ')
+    chloride_concentration = ic.input_concentration('Chloride (Cl, ppm): ')
+    sulphate_concentration = ic.input_concentration('Sulphate (SO4, ppm): ')
+    total_hardness_as_carbonate_concentration = ic.input_concentration('Hardness as calcium carbonate (CaCO3, ppm): ')
+    alkalinity_as_carbonate_concentration = ic.input_concentration('Alkalinity as calcium carbonate (CaCO3, ppm): ')
+    sodium_concentration = ic.input_concentration('Sodium (Na, ppm): ')
 
-    initial_water_profile = np.array([
+    water_profile = np.array([
         ph,
         chloride_concentration,
         sulphate_concentration,
@@ -19,4 +19,4 @@ def input_water_profile():
         sodium_concentration
     ])
 
-    return initial_water_profile
+    return water_profile
