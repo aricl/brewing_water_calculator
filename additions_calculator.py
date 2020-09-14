@@ -6,6 +6,7 @@ import additions.dwb as dwb
 import additions.magnesium_sulphate as magnesium_sulphate
 import additions.sodium_chloride as sodium_chloride
 
+
 def calculate_additions(initial_water_profile, target_water_profile):
     water_profile_difference = np.subtract(target_water_profile, initial_water_profile)
 
