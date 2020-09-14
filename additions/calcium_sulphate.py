@@ -2,7 +2,7 @@ import numpy as np
 from ions.atomic_mass_units import calcium, sulphate, water
 
 
-def get_calcium_sulphate_concentrations():
+def get_concentrations():
     """
         a.k.a. gypsum
         Key: Ca, Cl, SO4, alkalinity, Na, Mg
@@ -20,3 +20,8 @@ def get_calcium_sulphate_concentrations():
         0,
         0
     ])
+
+
+def to_string(grams_per_litre):
+    return str(round(grams_per_litre, 2)) + 'g/L'
+

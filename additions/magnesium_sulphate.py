@@ -2,7 +2,7 @@ import numpy as np
 from ions.atomic_mass_units import magnesium, sulphate, water
 
 
-def get_magnesium_sulphate_concentrations():
+def get_concentrations():
     """
         a.k.a. Epsom salts
         Key: Ca, Cl, SO4, alkalinity, Na, Mg
@@ -20,3 +20,8 @@ def get_magnesium_sulphate_concentrations():
         0,
         1000 * magnesium() / (magnesium_sulphate + ratio * water())
     ])
+
+
+def to_string(grams_per_litre):
+    return str(round(grams_per_litre, 2)) + 'g/L'
+
