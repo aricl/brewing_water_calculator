@@ -1,4 +1,5 @@
 from views.additions_calculator_view import view as additions_calculator_view
+from views.profile_calculator_view import view as profile_calculator_view
 
 
 def view():
@@ -18,7 +19,6 @@ def view():
         if integer_mode == 1:
             additions_calculator_view()
         elif integer_mode == 2:
-            print('Not implemented yet')
-            view()
+            profile_calculator_view()
         else:
             view()
