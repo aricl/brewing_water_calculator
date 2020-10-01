@@ -5,6 +5,7 @@ import additions.calcium_sulphate as calcium_sulphate
 import additions.dwb as dwb
 import additions.magnesium_sulphate as magnesium_sulphate
 import additions.sodium_chloride as sodium_chloride
+from scipy.optimize import minimize
 
 
 def calculate_additions(initial_water_profile, target_water_profile):
@@ -21,7 +22,18 @@ def calculate_additions(initial_water_profile, target_water_profile):
         ])
     )
 
-    linear_decomposition_result = np.linalg.solve(matrix, water_profile_difference)
+    def error_function(x) -> float:
+        dot = matrix.dot(x)
+        difference = dot - water_profile_difference
+        difference_squared = difference ** 2
+        sum_of_squares = np.sum(difference_squared)
+        return np.sqrt(sum_of_squares)
+
+    x0 = np.array([1, 1, 1, 1, 1, 1])
+    positive_bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
+    result = minimize(error_function, x0, method='SLSQP', tol=1e-10, bounds=positive_bounds)
+    linear_decomposition_result = result.x
+    # linear_decomposition_result = np.linalg.solve(matrix, water_profile_difference)
     additions = {
         'ams': ams.to_string(linear_decomposition_result[0]),
         'calcium_chloride': calcium_chloride.to_string(linear_decomposition_result[1]),
