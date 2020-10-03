@@ -29,11 +29,12 @@ def calculate_additions(initial_water_profile, target_water_profile):
         sum_of_squares = np.sum(difference_squared)
         return np.sqrt(sum_of_squares)
 
-    x0 = np.array([1, 1, 1, 1, 1, 1])
+    initial_additions = np.array([1, 1, 1, 1, 1, 1])
     positive_bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
-    result = minimize(error_function, x0, method='SLSQP', tol=1e-10, bounds=positive_bounds)
+    result = minimize(error_function, initial_additions, method='SLSQP', tol=1e-10, bounds=positive_bounds)
     calculated_additions = result.x
     # calculated_additions = np.linalg.solve(matrix, water_profile_difference)
+
     additions = {
         'ams': ams.to_string(calculated_additions[0]),
         'calcium_chloride': calcium_chloride.to_string(calculated_additions[1]),
