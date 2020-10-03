@@ -51,7 +51,7 @@ class MyTestCase(unittest.TestCase):
     def test_kernel_stouts_porters_water_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
         initial_water_profile = np.array([87.36, 43.74, 52.3, 190, 0.0, 5.09])
-        target_water_profile = np.array([134.36, 266.74, 99.30, 94.00, 0.0, 5.09])
+        target_water_profile = np.array([134.36, 266.74, 99.30, 94.00, 66.9, 5.09])
 
         calculated_additions = additions_calculator.calculate_additions(
             initial_water_profile,
@@ -59,12 +59,12 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': '0.54mL/L',
-            'calcium_chloride': '0.29g/L',
+            'ams': '0.52mL/L',
+            'calcium_chloride': '0.18g/L',
             'calcium_sulphate': '0.0g/L',
             'dwb': '0.0g/L',
             'magnesium_sulphate': '0.0g/L',
-            'sodium_chloride': '0.06g/L',
+            'sodium_chloride': '0.17g/L',
             'lactic_acid': '0.0mL/L'
         }
 
