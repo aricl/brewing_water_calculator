@@ -97,6 +97,33 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(expected_additions, calculated_additions)
 
+    def test_bermondsey_2020_to_achieve_light_hoppy_profile(self):
+        # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
+        initial_water_profile = np.array([104, 49.2, 54.0, 184, 33.9, 4.8])
+        # I got this profile from the light hoppy profile:
+        # https://www.brewersfriend.com/brewing-water-target-profiles/
+        # The only change I have made is I modified the Ca, Na, and Mg
+        # targets such that they match the initial profile, since the
+        # differences are small.
+        target_water_profile = np.array([104, 49.2, 150, 0, 33.9, 4.8])
+
+        calculated_additions = additions_calculator.calculate_additions(
+            initial_water_profile,
+            target_water_profile
+        )
+
+        expected_additions = {
+            'ams': '0.08mL/L',
+            'calcium_chloride': '0.0g/L',
+            'calcium_sulphate': '0.04g/L',
+            'dwb': '0.0g/L',
+            'magnesium_sulphate': '0.16g/L',
+            'sodium_chloride': '0.0g/L',
+            'lactic_acid': '0.66mL/L'
+        }
+
+        self.assertEqual(expected_additions, calculated_additions)
+
 
 if __name__ == '__main__':
     unittest.main()
