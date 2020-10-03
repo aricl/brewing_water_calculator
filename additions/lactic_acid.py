@@ -8,7 +8,7 @@ def get_concentrations():
         All values have been rounded to the nearest ppm
     :return: np.array
     """
-    return np.array([0, 0, 0, -156, 0, 0])
+    return np.array([0, 0, 0, -255, 0, 0])
 
 
 def to_string(millilitres_per_litre):
