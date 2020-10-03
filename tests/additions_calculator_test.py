@@ -3,6 +3,8 @@ import numpy as np
 import additions_calculator
 
 
+# TODO: Get the water profile calculated from the additions in each test. See how close
+#       it gets to the difference between the target and initial profiles.
 class MyTestCase(unittest.TestCase):
     def test_kernel_ales_bitters_ipas_water_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
