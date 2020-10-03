@@ -33,7 +33,7 @@ def calculate_additions(initial_water_profile, target_water_profile):
 
     initial_additions = np.array([1, 1, 1, 1, 1, 1, 1])
     positive_bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
-    result = minimize(error_function, initial_additions, method='SLSQP', tol=1e-10, bounds=positive_bounds)
+    result = minimize(error_function, initial_additions, method='SLSQP', tol=1e-3, bounds=positive_bounds)
     calculated_additions = result.x
     # calculated_additions = np.linalg.solve(matrix, water_profile_difference)
 
