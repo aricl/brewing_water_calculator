@@ -17,13 +17,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': '0.86mL/L',
-            'calcium_chloride': '0.0g/L',
-            'calcium_sulphate': '0.0g/L',
-            'dwb': '0.61g/L',
-            'magnesium_sulphate': '0.0g/L',
-            'sodium_chloride': '0.0g/L',
-            'lactic_acid': '0.0mL/L'
+            'ams': 0.8648391103352605,
+            'calcium_chloride': 0.0011139165073896446,
+            'calcium_sulphate': 0.0035957554672154195,
+            'dwb': 0.6061061694861456,
+            'magnesium_sulphate': 0.0002575288068418974,
+            'sodium_chloride': 2.7145175866105684e-05,
+            'lactic_acid': 3.2903174043822476e-13
         }
 
         self.assertEqual(expected_additions, calculated_additions)
@@ -39,13 +39,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': '0.0mL/L',
-            'calcium_chloride': '0.11g/L',
-            'calcium_sulphate': '0.07g/L',
-            'dwb': '0.0g/L',
-            'magnesium_sulphate': '0.0g/L',
-            'sodium_chloride': '0.0g/L',
-            'lactic_acid': '0.61mL/L'
+            'ams': 2.8715662680231717e-12,
+            'calcium_chloride': 0.10912928826582009,
+            'calcium_sulphate': 0.07481680938665661,
+            'dwb': 2.7627992916348135e-13,
+            'magnesium_sulphate': 5.44241008550406e-12,
+            'sodium_chloride': 9.821551822047647e-16,
+            'lactic_acid': 0.6112188819347667
         }
 
         self.assertEqual(expected_additions, calculated_additions)
@@ -61,13 +61,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': '0.52mL/L',
-            'calcium_chloride': '0.18g/L',
-            'calcium_sulphate': '0.0g/L',
-            'dwb': '0.0g/L',
-            'magnesium_sulphate': '0.0g/L',
-            'sodium_chloride': '0.17g/L',
-            'lactic_acid': '0.0mL/L'
+            'ams': 0.5199770139176254,
+            'calcium_chloride': 0.18272541124061567,
+            'calcium_sulphate': 5.353747450405045e-12,
+            'dwb': 5.0680350679175664e-14,
+            'magnesium_sulphate': 0.0005179759787675492,
+            'sodium_chloride': 0.1718213726401725,
+            'lactic_acid': 0.0
         }
 
         self.assertEqual(expected_additions, calculated_additions)
@@ -88,13 +88,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': '0.3mL/L',
-            'calcium_chloride': '0.01g/L',
-            'calcium_sulphate': '0.0g/L',
-            'dwb': '0.0g/L',
-            'magnesium_sulphate': '0.0g/L',
-            'sodium_chloride': '0.0g/L',
-            'lactic_acid': '0.11mL/L'
+            'ams': 0.29915894674470517,
+            'calcium_chloride': 0.0064505987224074916,
+            'calcium_sulphate': 2.5857922549169753e-09,
+            'dwb': 1.7393391168183756e-09,
+            'lactic_acid': 0.11218802678559774,
+            'magnesium_sulphate': 6.13461269265889e-05,
+            'sodium_chloride': 0.003932229239953924
         }
 
         self.assertEqual(expected_additions, calculated_additions)
@@ -115,13 +115,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': '0.08mL/L',
-            'calcium_chloride': '0.0g/L',
-            'calcium_sulphate': '0.04g/L',
-            'dwb': '0.0g/L',
-            'magnesium_sulphate': '0.16g/L',
-            'sodium_chloride': '0.0g/L',
-            'lactic_acid': '0.66mL/L'
+            'ams': 0.0843005857190059,
+            'calcium_chloride': 1.6520551798669604e-09,
+            'calcium_sulphate': 0.040956599353334774,
+            'dwb': 0.0,
+            'lactic_acid': 0.6604197826912657,
+            'magnesium_sulphate': 0.15809240755380205,
+            'sodium_chloride': 0.0
         }
 
         self.assertEqual(expected_additions, calculated_additions)

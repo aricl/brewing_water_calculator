@@ -32,19 +32,19 @@ def calculate_additions(initial_water_profile, target_water_profile):
         return np.sqrt(sum_of_squares)
 
     initial_additions = np.array([1, 1, 1, 1, 1, 1, 1])
-    positive_bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
-    result = minimize(error_function, initial_additions, method='SLSQP', tol=1e-3, bounds=positive_bounds)
+    bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
+    result = minimize(error_function, initial_additions, method='SLSQP', tol=1e-3, bounds=bounds)
     calculated_additions = result.x
     # calculated_additions = np.linalg.solve(matrix, water_profile_difference)
 
     additions = {
-        'ams': ams.to_string(calculated_additions[0]),
-        'calcium_chloride': calcium_chloride.to_string(calculated_additions[1]),
-        'calcium_sulphate': calcium_sulphate.to_string(calculated_additions[2]),
-        'dwb': dwb.to_string(calculated_additions[3]),
-        'magnesium_sulphate': magnesium_sulphate.to_string(calculated_additions[4]),
-        'sodium_chloride': sodium_chloride.to_string(calculated_additions[5]),
-        'lactic_acid': lactic_acid.to_string(calculated_additions[6])
+        'ams': calculated_additions[0],
+        'calcium_chloride': calculated_additions[1],
+        'calcium_sulphate': calculated_additions[2],
+        'dwb': calculated_additions[3],
+        'magnesium_sulphate': calculated_additions[4],
+        'sodium_chloride': calculated_additions[5],
+        'lactic_acid': calculated_additions[6]
     }
 
     return additions
