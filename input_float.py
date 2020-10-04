@@ -1,4 +1,4 @@
-def input_float(input_prompt):
+def input_float(input_prompt) -> float:
     print(input_prompt, end='')
     try:
         user_input = input()
