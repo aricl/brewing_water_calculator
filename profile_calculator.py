@@ -4,6 +4,7 @@ from additions.calcium_sulphate import get_concentrations as calcium_sulphate
 from additions.dwb import get_concentrations as dwb
 from additions.magnesium_sulphate import get_concentrations as magnesium_sulphate
 from additions.sodium_chloride import get_concentrations as sodium_chloride
+from additions.lactic_acid import get_concentrations as lactic_acid
 import numpy as np
 
 
@@ -16,6 +17,7 @@ def calculate_profile(initial_water_profile: np.array, addition_concentrations: 
             + (addition_concentrations['dwb'] * dwb())
             + (addition_concentrations['magnesium_sulphate'] * magnesium_sulphate())
             + (addition_concentrations['sodium_chloride'] * sodium_chloride())
+            + (addition_concentrations['lactic_acid'] * lactic_acid())
     )
 
     return final_water_profile

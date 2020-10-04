@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 import additions_calculator
+import profile_calculator
 
 
 # TODO: Get the water profile calculated from the additions in each test. See how close
@@ -34,6 +35,17 @@ class MyTestCase(unittest.TestCase):
                 'The addition concentration ' + key + ' deviates too much from the expected value'
             )
 
+        calculated_water_profile = profile_calculator.calculate_profile(
+            initial_water_profile,
+            calculated_additions
+        )
+
+        tolerance = 10  # 10ppm seems like a reasonable tolerance
+        self.assertTrue(
+            np.allclose(target_water_profile, calculated_water_profile, 1e-5, tolerance),
+            'The calculated water profile exceeded the required tolerance for at least one ion concentration'
+        )
+
     def test_kernel_lagers_pilsners_water_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
         initial_water_profile = np.array([87.36, 43.74, 52.3, 190, 0.0, 5.09])
@@ -62,6 +74,17 @@ class MyTestCase(unittest.TestCase):
                 'The addition concentration ' + key + ' deviates too much from the expected value'
             )
 
+        calculated_water_profile = profile_calculator.calculate_profile(
+            initial_water_profile,
+            calculated_additions
+        )
+
+        tolerance = 10  # 10ppm seems like a reasonable tolerance
+        self.assertTrue(
+            np.allclose(target_water_profile, calculated_water_profile, 1e-5, tolerance),
+            'The calculated water profile exceeded the required tolerance for at least one ion concentration'
+        )
+
     def test_kernel_stouts_porters_water_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
         initial_water_profile = np.array([87.36, 43.74, 52.3, 190, 0.0, 5.09])
@@ -89,6 +112,17 @@ class MyTestCase(unittest.TestCase):
                 additions_calculator.TOLERANCE,
                 'The addition concentration ' + key + ' deviates too much from the expected value'
             )
+
+        calculated_water_profile = profile_calculator.calculate_profile(
+            initial_water_profile,
+            calculated_additions
+        )
+
+        tolerance = 10  # 10ppm seems like a reasonable tolerance
+        self.assertTrue(
+            np.allclose(target_water_profile, calculated_water_profile, 1e-5, tolerance),
+            'The calculated water profile exceeded the required tolerance for at least one ion concentration'
+        )
 
     def test_bermondsey_2020_to_achieve_balanced_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -124,6 +158,17 @@ class MyTestCase(unittest.TestCase):
                 'The addition concentration ' + key + ' deviates too much from the expected value'
             )
 
+        calculated_water_profile = profile_calculator.calculate_profile(
+            initial_water_profile,
+            calculated_additions
+        )
+
+        tolerance = 10  # 10ppm seems like a reasonable tolerance
+        self.assertTrue(
+            np.allclose(target_water_profile, calculated_water_profile, 1e-5, tolerance),
+            'The calculated water profile exceeded the required tolerance for at least one ion concentration'
+        )
+
     def test_bermondsey_2020_to_achieve_light_hoppy_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
         # http://twmediadevcdn.azureedge.net/waterquality/WQ%20Report_Z0063_Bermondsey.pdf
@@ -157,6 +202,17 @@ class MyTestCase(unittest.TestCase):
                 additions_calculator.TOLERANCE,
                 'The addition concentration ' + key + ' deviates too much from the expected value'
             )
+
+        calculated_water_profile = profile_calculator.calculate_profile(
+            initial_water_profile,
+            calculated_additions
+        )
+
+        tolerance = 10  # 10ppm seems like a reasonable tolerance
+        self.assertTrue(
+            np.allclose(target_water_profile, calculated_water_profile, 1e-5, tolerance),
+            'The calculated water profile exceeded the required tolerance for at least one ion concentration'
+        )
 
 
 if __name__ == '__main__':
