@@ -2,6 +2,7 @@ import unittest
 import numpy as np
 from additions_calculator import calculate_additions, TOLERANCE as ADDITIONS_TOLERANCE
 from profile_calculator import calculate_profile
+from json import dumps
 
 
 class MyTestCase(unittest.TestCase):
@@ -19,7 +20,9 @@ class MyTestCase(unittest.TestCase):
                 self.assertLessEqual(
                     abs_diff,
                     ADDITIONS_TOLERANCE,
-                    addition_key + ' concentration too far from expected value in ' + test_case_name + ' test case'
+                    test_case_name +
+                    ': expected: ' + dumps(test_case_data['expected_additions'], sort_keys=True, indent=4)
+                    + '!= actual: ' + dumps(calculated_additions, sort_keys=True, indent=4)
                 )
 
     def test_calculate_additions_matches_target_profile(self):
@@ -38,9 +41,9 @@ class MyTestCase(unittest.TestCase):
 
             self.assertTrue(
                 np.allclose(test_data['target_profile'], calculated_water_profile, 1e-5, test_data['tolerance']),
-                'The calculated water profile for '
-                + test_case_name
-                + ' exceeded the required tolerance for at least one ion concentration'
+                test_case_name
+                + ': expected: ' + np.array2string(test_data['target_profile'], separator=', ')
+                + '\n actual: ' + np.array2string(calculated_water_profile, separator=', ')
             )
 
     @staticmethod
