@@ -61,7 +61,7 @@ class MyTestCase(unittest.TestCase):
                     'sodium_chloride': 0.00,
                     'lactic_acid': 0.00
                 },
-                'tolerance': 10  # 10ppm seems like a reasonable tolerance
+                'tolerance': 5  # 10ppm seems like a reasonable tolerance
             },
             'kernel_lagers_pilsners': {
                 # Key: Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -76,7 +76,7 @@ class MyTestCase(unittest.TestCase):
                     'sodium_chloride': 0.00,
                     'lactic_acid': 0.61
                 },
-                'tolerance': 10,
+                'tolerance': 5,
             },
             'kernel_stouts_porters': {
                 # Key: Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -91,8 +91,7 @@ class MyTestCase(unittest.TestCase):
                     'sodium_chloride': 0.17,
                     'lactic_acid': 0.01
                 },
-                'tolerance': 10
-
+                'tolerance': 5,
             },
             'bermondsey_2020_to_balanced': {
                 # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -112,7 +111,7 @@ class MyTestCase(unittest.TestCase):
                     'magnesium_sulphate': 0.00,
                     'sodium_chloride': 0.00
                 },
-                'tolerance': 10
+                'tolerance': 5,
             },
             'bermondsey_2020_to_light_hoppy': {
                 # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
