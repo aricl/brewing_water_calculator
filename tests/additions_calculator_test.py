@@ -14,12 +14,12 @@ class MyTestCase(unittest.TestCase):
                 test_case_data['target_profile']
             )
 
-            for key in test_case_data['expected_additions'].keys():
-                abs_diff = abs(test_case_data['expected_additions'][key] - calculated_additions[key])
+            for addition_key in test_case_data['expected_additions'].keys():
+                abs_diff = abs(test_case_data['expected_additions'][addition_key] - calculated_additions[addition_key])
                 self.assertLessEqual(
                     abs_diff,
                     ADDITIONS_TOLERANCE,
-                    'The addition concentration ' + key + ' deviates too much from the expected value'
+                    addition_key + ' concentration too far from expected value in ' + test_case_name + ' test case'
                 )
 
     def test_calculate_additions_matches_target_profile(self):
