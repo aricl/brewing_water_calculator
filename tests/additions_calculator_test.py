@@ -7,7 +7,7 @@ import profile_calculator
 # TODO: Get the water profile calculated from the additions in each test. See how close
 #       it gets to the difference between the target and initial profiles.
 class MyTestCase(unittest.TestCase):
-    def test_calculate_additions(self):
+    def test_calculate_additions_returns_expected_additions(self):
         test_data_sets = self.get_test_data()
         for test_case_name in test_data_sets:
             test_data = test_data_sets[test_case_name]
@@ -23,6 +23,15 @@ class MyTestCase(unittest.TestCase):
                     additions_calculator.TOLERANCE,
                     'The addition concentration ' + key + ' deviates too much from the expected value'
                 )
+
+    def test_calculate_additions_matches_target_profile(self):
+        test_data_sets = self.get_test_data()
+        for test_case_name in test_data_sets:
+            test_data = test_data_sets[test_case_name]
+            calculated_additions = additions_calculator.calculate_additions(
+                test_data['initial_profile'],
+                test_data['target_profile']
+            )
 
             calculated_water_profile = profile_calculator.calculate_profile(
                 test_data['initial_profile'],
