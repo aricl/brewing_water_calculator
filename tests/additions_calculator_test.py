@@ -92,6 +92,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_bermondsey_2020_to_achieve_balanced_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
+        # http://twmediadevcdn.azureedge.net/waterquality/WQ%20Report_Z0063_Bermondsey.pdf
         initial_water_profile = np.array([104, 49.2, 54.0, 184, 33.9, 4.8])
         # I got this profile from the first balanced profile:
         # https://www.brewersfriend.com/brewing-water-target-profiles/
@@ -125,6 +126,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_bermondsey_2020_to_achieve_light_hoppy_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
+        # http://twmediadevcdn.azureedge.net/waterquality/WQ%20Report_Z0063_Bermondsey.pdf
         initial_water_profile = np.array([104, 49.2, 54.0, 184, 33.9, 4.8])
         # I got this profile from the light hoppy profile:
         # https://www.brewersfriend.com/brewing-water-target-profiles/
