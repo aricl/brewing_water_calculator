@@ -1,17 +1,15 @@
 import unittest
 import numpy as np
-import additions_calculator
-import profile_calculator
+from additions_calculator import calculate_additions, TOLERANCE as ADDITIONS_TOLERANCE
+from profile_calculator import calculate_profile
 
 
-# TODO: Get the water profile calculated from the additions in each test. See how close
-#       it gets to the difference between the target and initial profiles.
 class MyTestCase(unittest.TestCase):
     def test_calculate_additions_returns_expected_additions(self):
         test_data_sets = self.get_test_data()
         for test_case_name in test_data_sets:
             test_data = test_data_sets[test_case_name]
-            calculated_additions = additions_calculator.calculate_additions(
+            calculated_additions = calculate_additions(
                 test_data['initial_profile'],
                 test_data['target_profile']
             )
@@ -20,7 +18,7 @@ class MyTestCase(unittest.TestCase):
                 abs_diff = abs(test_data['expected_additions'][key] - calculated_additions[key])
                 self.assertLessEqual(
                     abs_diff,
-                    additions_calculator.TOLERANCE,
+                    ADDITIONS_TOLERANCE,
                     'The addition concentration ' + key + ' deviates too much from the expected value'
                 )
 
@@ -28,12 +26,12 @@ class MyTestCase(unittest.TestCase):
         test_data_sets = self.get_test_data()
         for test_case_name in test_data_sets:
             test_data = test_data_sets[test_case_name]
-            calculated_additions = additions_calculator.calculate_additions(
+            calculated_additions = calculate_additions(
                 test_data['initial_profile'],
                 test_data['target_profile']
             )
 
-            calculated_water_profile = profile_calculator.calculate_profile(
+            calculated_water_profile = calculate_profile(
                 test_data['initial_profile'],
                 calculated_additions
             )
