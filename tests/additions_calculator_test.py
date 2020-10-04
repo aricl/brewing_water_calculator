@@ -73,13 +73,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.520,
-            'calcium_chloride': 0.183,
-            'calcium_sulphate': 0.000,
-            'dwb': 0.000,
-            'magnesium_sulphate': 0.000,
-            'sodium_chloride': 0.172,
-            'lactic_acid': 0.000
+            'ams': 0.50,
+            'calcium_chloride': 0.18,
+            'calcium_sulphate': 0.00,
+            'dwb': 0.00,
+            'magnesium_sulphate': 0.00,
+            'sodium_chloride': 0.17,
+            'lactic_acid': 0.01
         }
 
         for key in expected_additions.keys():

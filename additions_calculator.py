@@ -8,7 +8,7 @@ import additions.sodium_chloride as sodium_chloride
 import additions.lactic_acid as lactic_acid
 from scipy.optimize import minimize
 
-TOLERANCE = 1e-3
+TOLERANCE = 1e-2
 
 
 def calculate_additions(initial_water_profile, target_water_profile):
