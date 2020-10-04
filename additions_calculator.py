@@ -11,7 +11,7 @@ from scipy.optimize import minimize
 TOLERANCE = 1e-2
 
 
-def calculate_additions(initial_water_profile, target_water_profile):
+def calculate_additions(initial_water_profile: np.array, target_water_profile: np.array) -> dict:
     water_profile_difference = np.subtract(target_water_profile, initial_water_profile)
 
     matrix = np.transpose(
