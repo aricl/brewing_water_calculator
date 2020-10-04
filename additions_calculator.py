@@ -8,6 +8,8 @@ import additions.sodium_chloride as sodium_chloride
 import additions.lactic_acid as lactic_acid
 from scipy.optimize import minimize
 
+TOLERANCE = 1e-3
+
 
 def calculate_additions(initial_water_profile, target_water_profile):
     water_profile_difference = np.subtract(target_water_profile, initial_water_profile)
@@ -33,7 +35,7 @@ def calculate_additions(initial_water_profile, target_water_profile):
 
     initial_additions = np.array([1, 1, 1, 1, 1, 1, 1])
     bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
-    result = minimize(error_function, initial_additions, method='SLSQP', tol=1e-3, bounds=bounds)
+    result = minimize(error_function, initial_additions, method='SLSQP', tol=TOLERANCE, bounds=bounds)
     calculated_additions = result.x
     # calculated_additions = np.linalg.solve(matrix, water_profile_difference)
 

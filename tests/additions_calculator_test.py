@@ -17,16 +17,22 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.8648391103352605,
-            'calcium_chloride': 0.0011139165073896446,
-            'calcium_sulphate': 0.0035957554672154195,
-            'dwb': 0.6061061694861456,
-            'magnesium_sulphate': 0.0002575288068418974,
-            'sodium_chloride': 2.7145175866105684e-05,
-            'lactic_acid': 3.2903174043822476e-13
+            'ams': 0.865,
+            'calcium_chloride': 0.001,
+            'calcium_sulphate': 0.004,
+            'dwb': 0.606,
+            'magnesium_sulphate': 0.000,
+            'sodium_chloride': 0.000,
+            'lactic_acid': 0.000
         }
 
-        self.assertEqual(expected_additions, calculated_additions)
+        for key in expected_additions.keys():
+            abs_diff = abs(expected_additions[key] - calculated_additions[key])
+            self.assertLessEqual(
+                abs_diff,
+                additions_calculator.TOLERANCE,
+                'The addition concentration ' + key + ' deviates too much from the expected value'
+            )
 
     def test_kernel_lagers_pilsners_water_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -39,16 +45,22 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 2.8715662680231717e-12,
-            'calcium_chloride': 0.10912928826582009,
-            'calcium_sulphate': 0.07481680938665661,
-            'dwb': 2.7627992916348135e-13,
-            'magnesium_sulphate': 5.44241008550406e-12,
-            'sodium_chloride': 9.821551822047647e-16,
-            'lactic_acid': 0.6112188819347667
+            'ams': 0.000,
+            'calcium_chloride': 0.109,
+            'calcium_sulphate': 0.075,
+            'dwb': 0.000,
+            'magnesium_sulphate': 0.000,
+            'sodium_chloride': 0.000,
+            'lactic_acid': 0.611
         }
 
-        self.assertEqual(expected_additions, calculated_additions)
+        for key in expected_additions.keys():
+            abs_diff = abs(expected_additions[key] - calculated_additions[key])
+            self.assertLessEqual(
+                abs_diff,
+                additions_calculator.TOLERANCE,
+                'The addition concentration ' + key + ' deviates too much from the expected value'
+            )
 
     def test_kernel_stouts_porters_water_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -61,16 +73,22 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.5199770139176254,
-            'calcium_chloride': 0.18272541124061567,
-            'calcium_sulphate': 5.353747450405045e-12,
-            'dwb': 5.0680350679175664e-14,
-            'magnesium_sulphate': 0.0005179759787675492,
-            'sodium_chloride': 0.1718213726401725,
-            'lactic_acid': 0.0
+            'ams': 0.520,
+            'calcium_chloride': 0.183,
+            'calcium_sulphate': 0.000,
+            'dwb': 0.000,
+            'magnesium_sulphate': 0.000,
+            'sodium_chloride': 0.172,
+            'lactic_acid': 0.000
         }
 
-        self.assertEqual(expected_additions, calculated_additions)
+        for key in expected_additions.keys():
+            abs_diff = abs(expected_additions[key] - calculated_additions[key])
+            self.assertLessEqual(
+                abs_diff,
+                additions_calculator.TOLERANCE,
+                'The addition concentration ' + key + ' deviates too much from the expected value'
+            )
 
     def test_bermondsey_2020_to_achieve_balanced_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -88,16 +106,22 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.29915894674470517,
-            'calcium_chloride': 0.0064505987224074916,
-            'calcium_sulphate': 2.5857922549169753e-09,
-            'dwb': 1.7393391168183756e-09,
-            'lactic_acid': 0.11218802678559774,
-            'magnesium_sulphate': 6.13461269265889e-05,
-            'sodium_chloride': 0.003932229239953924
+            'ams': 0.299,
+            'calcium_chloride': 0.006,
+            'calcium_sulphate': 0.000,
+            'dwb': 0.000,
+            'lactic_acid': 0.112,
+            'magnesium_sulphate': 0.000,
+            'sodium_chloride': 0.004
         }
 
-        self.assertEqual(expected_additions, calculated_additions)
+        for key in expected_additions.keys():
+            abs_diff = abs(expected_additions[key] - calculated_additions[key])
+            self.assertLessEqual(
+                abs_diff,
+                additions_calculator.TOLERANCE,
+                'The addition concentration ' + key + ' deviates too much from the expected value'
+            )
 
     def test_bermondsey_2020_to_achieve_light_hoppy_profile(self):
         # Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
@@ -115,16 +139,22 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.0843005857190059,
-            'calcium_chloride': 1.6520551798669604e-09,
-            'calcium_sulphate': 0.040956599353334774,
-            'dwb': 0.0,
-            'lactic_acid': 0.6604197826912657,
-            'magnesium_sulphate': 0.15809240755380205,
-            'sodium_chloride': 0.0
+            'ams': 0.084,
+            'calcium_chloride': 0.000,
+            'calcium_sulphate': 0.041,
+            'dwb': 0.000,
+            'lactic_acid': 0.660,
+            'magnesium_sulphate': 0.158,
+            'sodium_chloride': 0.000
         }
 
-        self.assertEqual(expected_additions, calculated_additions)
+        for key in expected_additions.keys():
+            abs_diff = abs(expected_additions[key] - calculated_additions[key])
+            self.assertLessEqual(
+                abs_diff,
+                additions_calculator.TOLERANCE,
+                'The addition concentration ' + key + ' deviates too much from the expected value'
+            )
 
 
 if __name__ == '__main__':
