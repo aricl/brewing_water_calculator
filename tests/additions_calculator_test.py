@@ -17,13 +17,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.865,
-            'calcium_chloride': 0.001,
-            'calcium_sulphate': 0.004,
-            'dwb': 0.606,
-            'magnesium_sulphate': 0.000,
-            'sodium_chloride': 0.000,
-            'lactic_acid': 0.000
+            'ams': 0.86,
+            'calcium_chloride': 0.00,
+            'calcium_sulphate': 0.00,
+            'dwb': 0.61,
+            'magnesium_sulphate': 0.00,
+            'sodium_chloride': 0.00,
+            'lactic_acid': 0.00
         }
 
         for key in expected_additions.keys():
@@ -45,13 +45,13 @@ class MyTestCase(unittest.TestCase):
         )
 
         expected_additions = {
-            'ams': 0.000,
-            'calcium_chloride': 0.109,
-            'calcium_sulphate': 0.075,
-            'dwb': 0.000,
-            'magnesium_sulphate': 0.000,
-            'sodium_chloride': 0.000,
-            'lactic_acid': 0.611
+            'ams': 0.00,
+            'calcium_chloride': 0.11,
+            'calcium_sulphate': 0.07,
+            'dwb': 0.00,
+            'magnesium_sulphate': 0.00,
+            'sodium_chloride': 0.00,
+            'lactic_acid': 0.61
         }
 
         for key in expected_additions.keys():
