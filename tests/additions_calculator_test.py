@@ -6,16 +6,16 @@ from profile_calculator import calculate_profile
 
 class MyTestCase(unittest.TestCase):
     def test_calculate_additions_returns_expected_additions(self):
-        test_data_sets = self.get_test_data()
-        for test_case_name in test_data_sets:
-            test_data = test_data_sets[test_case_name]
+        data_for_test_cases = self.get_data_for_test_cases()
+        for test_case_name in data_for_test_cases:
+            test_case_data = data_for_test_cases[test_case_name]
             calculated_additions = calculate_additions(
-                test_data['initial_profile'],
-                test_data['target_profile']
+                test_case_data['initial_profile'],
+                test_case_data['target_profile']
             )
 
-            for key in test_data['expected_additions'].keys():
-                abs_diff = abs(test_data['expected_additions'][key] - calculated_additions[key])
+            for key in test_case_data['expected_additions'].keys():
+                abs_diff = abs(test_case_data['expected_additions'][key] - calculated_additions[key])
                 self.assertLessEqual(
                     abs_diff,
                     ADDITIONS_TOLERANCE,
@@ -23,7 +23,7 @@ class MyTestCase(unittest.TestCase):
                 )
 
     def test_calculate_additions_matches_target_profile(self):
-        test_data_sets = self.get_test_data()
+        test_data_sets = self.get_data_for_test_cases()
         for test_case_name in test_data_sets:
             test_data = test_data_sets[test_case_name]
             calculated_additions = calculate_additions(
@@ -44,7 +44,7 @@ class MyTestCase(unittest.TestCase):
             )
 
     @staticmethod
-    def get_test_data() -> dict:
+    def get_data_for_test_cases() -> dict:
         return {
             'kernel_ales_bitters_ipas': {
                 # Key: Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
