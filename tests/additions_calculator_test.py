@@ -122,17 +122,17 @@ class MyTestCase(unittest.TestCase):
                 # https://www.brewersfriend.com/brewing-water-target-profiles/
                 # I also set targets such that they match the initial profile, since the
                 # differences are small.
-                'target_profile': np.array([104, 49.2, 150, 0, 33.9, 4.8]),
+                'target_profile': np.array([150, 49.2, 150, 0, 33.9, 4.8]),
                 'expected_additions': {
-                    'ams': 0.08,
+                    'ams': 0.00,
                     'calcium_chloride': 0.00,
-                    'calcium_sulphate': 0.04,
+                    'calcium_sulphate': 0.17,
                     'dwb': 0.00,
-                    'lactic_acid': 0.66,
-                    'magnesium_sulphate': 0.16,
+                    'lactic_acid': 0.73,
+                    'magnesium_sulphate': 0.00,
                     'sodium_chloride': 0.00
                 },
-                'tolerance': 20  # TODO: I had to set this high for now to make the test pass
+                'tolerance': 5
             },
         }
 
