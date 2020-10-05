@@ -62,7 +62,7 @@ class MyTestCase(unittest.TestCase):
                     'sodium_chloride': 0.00,
                     'lactic_acid': 0.00
                 },
-                'tolerance': 5  # 10ppm seems like a reasonable tolerance
+                'tolerance': 5
             },
             'kernel_lagers_pilsners': {
                 # Key: Ca, Cl, SO4, Alkalinity as CO3, Na, Mg
