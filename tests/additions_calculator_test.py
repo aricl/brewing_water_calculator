@@ -100,8 +100,8 @@ class MyTestCase(unittest.TestCase):
                 'initial_profile': np.array([104, 49.2, 54.0, 184, 33.9, 4.8]),
                 # I got this profile from the first balanced profile:
                 # https://www.brewersfriend.com/brewing-water-target-profiles/
-                # I also set targets such that they match the initial profile, since the
-                # differences are small.
+                # I made changes to the target such that it's possible to reach something
+                # close to the original target with the initial profile.
                 'target_profile': np.array([104, 75, 80, 100, 33.9, 4.8]),
                 'expected_additions': {
                     'ams': 0.30,
@@ -120,8 +120,8 @@ class MyTestCase(unittest.TestCase):
                 'initial_profile': np.array([104, 49.2, 54.0, 184, 33.9, 4.8]),
                 # I got this profile from the light hoppy profile:
                 # https://www.brewersfriend.com/brewing-water-target-profiles/
-                # I also set targets such that they match the initial profile, since the
-                # differences are small.
+                # I made changes to the target such that it's possible to reach something
+                # close to the original target with the initial profile.
                 'target_profile': np.array([150, 49.2, 150, 0, 33.9, 4.8]),
                 'expected_additions': {
                     'ams': 0.00,
