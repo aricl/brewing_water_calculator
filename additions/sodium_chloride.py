@@ -2,7 +2,7 @@ import numpy as np
 from ions.atomic_mass_units import sodium, chlorine
 
 
-def get_concentrations():
+def get_concentrations() -> np.array:
     """
         Key: Ca, Cl, SO4, alkalinity, Na, Mg
         The effect of 1g of NaCl on 1 litre of liquor in ppm
@@ -20,6 +20,6 @@ def get_concentrations():
     ])
 
 
-def to_string(grams_per_litre):
+def to_string(grams_per_litre: float) -> str:
     return str(round(grams_per_litre, 2)) + 'g/L'
 
