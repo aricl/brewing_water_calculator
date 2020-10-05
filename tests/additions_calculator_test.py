@@ -104,11 +104,11 @@ class MyTestCase(unittest.TestCase):
                 # differences are small.
                 'target_profile': np.array([104, 75, 80, 100, 33.9, 4.8]),
                 'expected_additions': {
-                    'ams': 0.28,
+                    'ams': 0.30,
                     'calcium_chloride': 0.01,
                     'calcium_sulphate': 0.00,
                     'dwb': 0.00,
-                    'lactic_acid': 0.13,
+                    'lactic_acid': 0.11,
                     'magnesium_sulphate': 0.00,
                     'sodium_chloride': 0.00
                 },

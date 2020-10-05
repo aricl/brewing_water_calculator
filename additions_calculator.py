@@ -28,10 +28,11 @@ def calculate_additions(initial_water_profile: np.array, target_water_profile: n
 
     def error_function(x) -> float:
         dot = matrix.dot(x)
+        number_of_ions = len(dot)
         difference = dot - water_profile_difference
-        difference_squared = difference ** 2
-        sum_of_squares = np.sum(difference_squared)
-        return np.sqrt(sum_of_squares)
+        mean_square = np.sum(difference ** 2) / number_of_ions
+        root_mean_square = np.sqrt(mean_square)
+        return root_mean_square
 
     initial_additions = np.array([1, 1, 1, 1, 1, 1, 1])
     bounds = ((0, None), (0, None), (0, None), (0, None), (0, None), (0, None), (0, None))
