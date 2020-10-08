@@ -2,7 +2,7 @@ import numpy as np
 import input_float as ic
 
 
-def input_water_profile():
+def input_water_profile() -> np.array:
     calcium_concentration = ic.input_float('Calcium (Ca, ppm): ')
     chloride_concentration = ic.input_float('Chloride (Cl, ppm): ')
     sulphate_concentration = ic.input_float('Sulphate (SO4, ppm): ')
