@@ -14,7 +14,8 @@ def view():
         'calcium_sulphate': input_float('Calcium Sulphate (g/L): '),
         'dwb': input_float('DWB (g/L): '),
         'magnesium_sulphate': input_float('Magnesium Sulphate, a.k.a. Epsom salts (g/L): '),
-        'sodium_chloride': input_float('Sodium chloride, a.k.a. table salt (g/L): ')
+        'sodium_chloride': input_float('Sodium chloride, a.k.a. table salt (g/L): '),
+        'lactic_acid': input_float('Lactic acid (mL/L): ')
     }
 
     final_water_profile = profile_calculator.calculate_profile(
