@@ -1,27 +1,38 @@
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-class ButtonApp(App):
+Builder.load_file('screens/menu.kv')
+Builder.load_file('screens/additions_calculator.kv')
+Builder.load_file('screens/profile_calculator.kv')
+
+
+# Declare both screens
+class Menu(Screen):
+    pass
+
+
+class AdditionsCalculator(Screen):
+    pass
+
+
+class ProfileCalculator(Screen):
+    pass
+
+
+# Create the screen manager
+sm = ScreenManager()
+sm.add_widget(Menu(name='menu'))
+sm.add_widget(AdditionsCalculator(name='additions_calculator'))
+sm.add_widget(ProfileCalculator(name='profile_calculator'))
+
+
+class TestApp(App):
+
     def build(self):
-        layout = BoxLayout(padding=10)
-
-        additions_from_profile_button = Button(text='Additions From Profile')
-        additions_from_profile_button.bind(on_press=self.on_button_press)
-        layout.add_widget(additions_from_profile_button)
-
-        profile_from_additions_button = Button(text='Profile From Additions')
-        profile_from_additions_button.bind(on_press=self.on_button_press)
-        layout.add_widget(profile_from_additions_button)
-
-        return layout
-
-    def on_button_press(self, instance):
-        print(instance.text)
+        return sm
 
 
 if __name__ == '__main__':
-    app = ButtonApp()
-    app.run()
+    TestApp().run()
