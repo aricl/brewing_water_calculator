@@ -8,7 +8,6 @@ Builder.load_file('screens/additions_calculator.kv')
 Builder.load_file('screens/profile_calculator.kv')
 
 
-# Declare both screens
 class Menu(Screen):
     pass
 
@@ -21,17 +20,16 @@ class ProfileCalculator(Screen):
     pass
 
 
-# Create the screen manager
-sm = ScreenManager()
-sm.add_widget(Menu(name='menu'))
-sm.add_widget(AdditionsCalculator(name='additions_calculator'))
-sm.add_widget(ProfileCalculator(name='profile_calculator'))
+screen_manager = ScreenManager()
+screen_manager.add_widget(Menu(name='menu'))
+screen_manager.add_widget(AdditionsCalculator(name='additions_calculator'))
+screen_manager.add_widget(ProfileCalculator(name='profile_calculator'))
 
 
 class TestApp(App):
 
     def build(self):
-        return sm
+        return screen_manager
 
 
 if __name__ == '__main__':
