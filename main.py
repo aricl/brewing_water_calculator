@@ -11,7 +11,6 @@ Builder.load_file('screens/profile_calculator.kv')
 class Menu(Screen):
     pass
 
-
 class AdditionsCalculator(Screen):
     pass
 
@@ -30,6 +29,9 @@ class TestApp(App):
 
     def build(self):
         return screen_manager
+
+    def quit(self):
+        App.get_running_app().stop()
 
 
 if __name__ == '__main__':
