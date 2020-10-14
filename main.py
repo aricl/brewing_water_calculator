@@ -11,6 +11,7 @@ Builder.load_file('screens/profile_calculator.kv')
 class Menu(Screen):
     pass
 
+
 class AdditionsCalculator(Screen):
     pass
 
