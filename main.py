@@ -33,6 +33,7 @@ class TestApp(App):
 
     def quit(self):
         App.get_running_app().stop()
+        exit()
 
 
 if __name__ == '__main__':
