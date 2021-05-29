@@ -9,16 +9,19 @@ import numpy as np
 from profile_calculator import calculate_profile
 
 
-class DemoApp(MDApp):
+class BrewingWaterCalculatorApp(MDApp):
+    def __init__(self, **kwargs):
+        super().__init__()
+        self.lactic_acid = Builder.load_string(helpers.lactic_acid_definition)
+        self.sodium_chloride = Builder.load_string(helpers.sodium_chloride_definition)
+        self.magnesium_sulphate = Builder.load_string(helpers.magnesium_sulphate_definition)
+        self.dwb = Builder.load_string(helpers.dwb_definition)
+        self.calcium_sulphate = Builder.load_string(helpers.calcium_sulphate_definition)
+        self.calcium_chloride = Builder.load_string(helpers.calcium_chloride_definition)
+        self.ams = Builder.load_string(helpers.ams_definition)
+
     def build(self):
         screen = Screen()
-        self.ams = Builder.load_string(helpers.ams_definition)
-        self.calcium_chloride = Builder.load_string(helpers.calcium_chloride_definition)
-        self.calcium_sulphate = Builder.load_string(helpers.calcium_sulphate_definition)
-        self.dwb = Builder.load_string(helpers.dwb_definition)
-        self.magnesium_sulphate = Builder.load_string(helpers.magnesium_sulphate_definition)
-        self.sodium_chloride = Builder.load_string(helpers.sodium_chloride_definition)
-        self.lactic_acid = Builder.load_string(helpers.lactic_acid_definition)
         screen.add_widget(self.ams)
         screen.add_widget(self.calcium_chloride)
         screen.add_widget(self.calcium_sulphate)
@@ -37,7 +40,7 @@ class DemoApp(MDApp):
         if self.ams.text is "":
             output_string = 'Please enter additions to calculate a water profile'
 
-        water_profile = np.array([
+        balanced_water_profile = np.array([
             80.0,
             75,
             80,
@@ -53,7 +56,7 @@ class DemoApp(MDApp):
         sodium_chloride = float(self.sodium_chloride.text)
         lactic_acid = float(self.lactic_acid.text)
         calculated_profile = calculate_profile(
-            water_profile,
+            balanced_water_profile,
             {
                 'ams': ams,
                 'calcium_chloride': calcium_chloride,
@@ -77,7 +80,7 @@ class DemoApp(MDApp):
         more_button = MDFlatButton(text='More')
         self.dialog = MDDialog(
             text=output_string,
-            title='Titular Title',
+            title='Calculated Water Profile',
             size_hint=(0.7, 1),
             buttons=[close_button, more_button])
         self.dialog.open(self)
@@ -86,4 +89,4 @@ class DemoApp(MDApp):
         self.dialog.dismiss(self)
 
 
-DemoApp().run()
+BrewingWaterCalculatorApp().run()
