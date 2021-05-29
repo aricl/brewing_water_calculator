@@ -48,13 +48,13 @@ class BrewingWaterCalculatorApp(MDApp):
             25,
             5
         ])
-        ams = float(self.ams.text)
-        calcium_chloride = float(self.calcium_chloride.text)
-        calcium_sulphate = float(self.calcium_sulphate.text)
-        dwb = float(self.dwb.text)
-        magnesium_sulphate = float(self.magnesium_sulphate.text)
-        sodium_chloride = float(self.sodium_chloride.text)
-        lactic_acid = float(self.lactic_acid.text)
+        ams = float(self.ams.text) if self.ams.text else 0
+        calcium_chloride = float(self.calcium_chloride.text) if self.calcium_chloride.text else 0
+        calcium_sulphate = float(self.calcium_sulphate.text) if self.calcium_sulphate.text else 0
+        dwb = float(self.dwb.text) if self.dwb.text else 0
+        magnesium_sulphate = float(self.magnesium_sulphate.text) if self.magnesium_sulphate.text else 0
+        sodium_chloride = float(self.sodium_chloride.text) if self.sodium_chloride.text else 0
+        lactic_acid = float(self.lactic_acid.text) if self.lactic_acid.text else 0
         calculated_profile = calculate_profile(
             balanced_water_profile,
             {
@@ -69,12 +69,12 @@ class BrewingWaterCalculatorApp(MDApp):
         )
 
         output_string = ''
-        output_string += 'Ca: ' + str(calculated_profile[0]) + '\n'
-        output_string += 'Cl: ' + str(calculated_profile[1]) + '\n'
-        output_string += 'SO4: ' + str(calculated_profile[2]) + '\n'
-        output_string += 'Alkalinity: ' + str(calculated_profile[3]) + '\n'
-        output_string += 'Na: ' + str(calculated_profile[4]) + '\n'
-        output_string += 'Mg: ' + str(calculated_profile[5]) + '\n'
+        output_string += 'Ca: ' + str(int(calculated_profile[0])) + '\n'
+        output_string += 'Cl: ' + str(int(calculated_profile[1])) + '\n'
+        output_string += 'SO4: ' + str(int(calculated_profile[2])) + '\n'
+        output_string += 'Alkalinity: ' + str(int(calculated_profile[3])) + '\n'
+        output_string += 'Na: ' + str(int(calculated_profile[4])) + '\n'
+        output_string += 'Mg: ' + str(int(calculated_profile[5])) + '\n'
 
         close_button = MDFlatButton(text='Close', on_release=self.close_dialog)
         more_button = MDFlatButton(text='More')
