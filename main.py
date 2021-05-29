@@ -10,25 +10,15 @@ from profile_calculator import calculate_profile
 
 
 class BrewingWaterCalculatorApp(MDApp):
-    def __init__(self, **kwargs):
-        super().__init__()
-        self.lactic_acid = Builder.load_string(helpers.lactic_acid_definition)
-        self.sodium_chloride = Builder.load_string(helpers.sodium_chloride_definition)
-        self.magnesium_sulphate = Builder.load_string(helpers.magnesium_sulphate_definition)
-        self.dwb = Builder.load_string(helpers.dwb_definition)
-        self.calcium_sulphate = Builder.load_string(helpers.calcium_sulphate_definition)
-        self.calcium_chloride = Builder.load_string(helpers.calcium_chloride_definition)
-        self.ams = Builder.load_string(helpers.ams_definition)
-
     def build(self):
         screen = Screen()
-        screen.add_widget(self.ams)
-        screen.add_widget(self.calcium_chloride)
-        screen.add_widget(self.calcium_sulphate)
-        screen.add_widget(self.dwb)
-        screen.add_widget(self.magnesium_sulphate)
-        screen.add_widget(self.sodium_chloride)
-        screen.add_widget(self.lactic_acid)
+
+        self.widgets = []
+        for helper in helpers.helpers:
+            self.widgets.append(Builder.load_string(helper))
+        for widget in self.widgets:
+            screen.add_widget(widget)
+
         button = MDRectangleFlatButton(
             text='Enter',
             pos_hint={'center_x': 0.5, 'center_y': 0.2},
@@ -37,9 +27,6 @@ class BrewingWaterCalculatorApp(MDApp):
         return screen
 
     def show_data(self, obj):
-        if self.ams.text is "":
-            output_string = 'Please enter additions to calculate a water profile'
-
         balanced_water_profile = np.array([
             80.0,
             75,
@@ -48,23 +35,17 @@ class BrewingWaterCalculatorApp(MDApp):
             25,
             5
         ])
-        ams = float(self.ams.text) if self.ams.text else 0
-        calcium_chloride = float(self.calcium_chloride.text) if self.calcium_chloride.text else 0
-        calcium_sulphate = float(self.calcium_sulphate.text) if self.calcium_sulphate.text else 0
-        dwb = float(self.dwb.text) if self.dwb.text else 0
-        magnesium_sulphate = float(self.magnesium_sulphate.text) if self.magnesium_sulphate.text else 0
-        sodium_chloride = float(self.sodium_chloride.text) if self.sodium_chloride.text else 0
-        lactic_acid = float(self.lactic_acid.text) if self.lactic_acid.text else 0
+        additions = [float(widget.text) if widget.text else 0 for widget in self.widgets]
         calculated_profile = calculate_profile(
             balanced_water_profile,
             {
-                'ams': ams,
-                'calcium_chloride': calcium_chloride,
-                'calcium_sulphate': calcium_sulphate,
-                'dwb': dwb,
-                'magnesium_sulphate': magnesium_sulphate,
-                'sodium_chloride': sodium_chloride,
-                'lactic_acid': lactic_acid,
+                'ams': additions[0],
+                'calcium_chloride': additions[1],
+                'calcium_sulphate': additions[2],
+                'dwb': additions[3],
+                'magnesium_sulphate': additions[4],
+                'sodium_chloride': additions[5],
+                'lactic_acid': additions[6],
             }
         )
 

@@ -74,3 +74,13 @@ MDTextField:
     size_hint_y: None
     width: 400
 '''
+
+helpers = [
+    ams_definition,
+    calcium_chloride_definition,
+    calcium_sulphate_definition,
+    dwb_definition,
+    magnesium_sulphate_definition,
+    sodium_chloride_definition,
+    lactic_acid_definition
+]
