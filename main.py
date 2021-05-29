@@ -12,18 +12,20 @@ from profile_calculator import calculate_profile
 class DemoApp(MDApp):
     def build(self):
         screen = Screen()
-        self.calcium_concentration = Builder.load_string(helpers.calcium_concentration_definition)
-        self.chloride_concentration = Builder.load_string(helpers.chloride_concentration_definition)
-        self.sulphate_concentration = Builder.load_string(helpers.sulphate_concentration_definition)
-        self.alkalinity_as_carbonate_concentration = Builder.load_string(helpers.alkalinity_as_carbonate_concentration_definition)
-        self.sodium_concentration = Builder.load_string(helpers.sodium_concentration_definition)
-        self.magnesium_concentration = Builder.load_string(helpers.magnesium_concentration_definition)
-        screen.add_widget(self.calcium_concentration)
-        screen.add_widget(self.chloride_concentration)
-        screen.add_widget(self.sulphate_concentration)
-        screen.add_widget(self.alkalinity_as_carbonate_concentration)
-        screen.add_widget(self.sodium_concentration)
-        screen.add_widget(self.magnesium_concentration)
+        self.ams = Builder.load_string(helpers.ams_definition)
+        self.calcium_chloride = Builder.load_string(helpers.calcium_chloride_definition)
+        self.calcium_sulphate = Builder.load_string(helpers.calcium_sulphate_definition)
+        self.dwb = Builder.load_string(helpers.dwb_definition)
+        self.magnesium_sulphate = Builder.load_string(helpers.magnesium_sulphate_definition)
+        self.sodium_chloride = Builder.load_string(helpers.sodium_chloride_definition)
+        self.lactic_acid = Builder.load_string(helpers.lactic_acid_definition)
+        screen.add_widget(self.ams)
+        screen.add_widget(self.calcium_chloride)
+        screen.add_widget(self.calcium_sulphate)
+        screen.add_widget(self.dwb)
+        screen.add_widget(self.magnesium_sulphate)
+        screen.add_widget(self.sodium_chloride)
+        screen.add_widget(self.lactic_acid)
         button = MDRectangleFlatButton(
             text='Enter',
             pos_hint={'center_x': 0.5, 'center_y': 0.2},
@@ -32,27 +34,34 @@ class DemoApp(MDApp):
         return screen
 
     def show_data(self, obj):
-        if self.calcium_concentration.text is "":
-            output_string = 'Please enter a calcium concentration'
+        if self.ams.text is "":
+            output_string = 'Please enter additions to calculate a water profile'
 
         water_profile = np.array([
-            float(self.calcium_concentration.text),
-            float(self.chloride_concentration.text),
-            float(self.sulphate_concentration.text),
-            float(self.alkalinity_as_carbonate_concentration.text),
-            float(self.sodium_concentration.text),
-            float(self.magnesium_concentration.text)
+            80.0,
+            75,
+            80,
+            100,
+            25,
+            5
         ])
+        ams = float(self.ams.text)
+        calcium_chloride = float(self.calcium_chloride.text)
+        calcium_sulphate = float(self.calcium_sulphate.text)
+        dwb = float(self.dwb.text)
+        magnesium_sulphate = float(self.magnesium_sulphate.text)
+        sodium_chloride = float(self.sodium_chloride.text)
+        lactic_acid = float(self.lactic_acid.text)
         calculated_profile = calculate_profile(
             water_profile,
             {
-                'ams': 1,
-                'calcium_chloride': 0,
-                'calcium_sulphate': 0,
-                'dwb': 0,
-                'magnesium_sulphate': 0,
-                'sodium_chloride': 1,
-                'lactic_acid': 0,
+                'ams': ams,
+                'calcium_chloride': calcium_chloride,
+                'calcium_sulphate': calcium_sulphate,
+                'dwb': dwb,
+                'magnesium_sulphate': magnesium_sulphate,
+                'sodium_chloride': sodium_chloride,
+                'lactic_acid': lactic_acid,
             }
         )
 
