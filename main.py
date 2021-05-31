@@ -1,12 +1,12 @@
 from kivymd.app import MDApp
-from views.additions_calculator import AdditionsCalculator
+from views.profile_calculator import ProfileCalculator
 
 
 class BrewingWaterCalculatorApp(MDApp):
     def build(self):
-        additions_calculator = AdditionsCalculator()
+        profile_calculator = ProfileCalculator()
 
-        return additions_calculator.create()
+        return profile_calculator.create()
 
 
 BrewingWaterCalculatorApp().run()
