@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import Screen
 from kivymd.uix.button import MDRectangleFlatButton, MDFlatButton
 from kivymd.uix.dialog import MDDialog
 from kivy.lang.builder import Builder
-import helpers
+from views import additions_calculator_helpers
 import numpy as np
 from profile_calculator import calculate_profile
 
@@ -13,7 +13,7 @@ class AdditionsCalculator(MDApp):
         screen = Screen()
 
         self.widgets = []
-        for helper in helpers.helpers:
+        for helper in additions_calculator_helpers.helpers:
             self.widgets.append(Builder.load_string(helper))
         for widget in self.widgets:
             screen.add_widget(widget)
